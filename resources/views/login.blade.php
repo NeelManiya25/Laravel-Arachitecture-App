@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+     <title>Login</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 50px; }
         form { max-width: 400px; margin: auto; }
@@ -15,18 +15,18 @@
 <body>
     <h2>Login</h2>
     @if(session('success'))
-        <p style="color: green;">{{ session('success') }}</p>
+          <p style="color:green;">{{ session('success') }}</p>
     @endif
     @if($errors->any())
     <p style="color:red;">{{ $errors->first() }}</p>
     @endif
-    <form action="{{ route('login') }}" method="POST">
+        <form action="{{ route('login') }}" method="POST">
         @csrf
         <label>Email:</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email">
         <label>Password:</label>
-        <input type="password" name="password" required>
-        <button type="submit">Login</button>
+        <input type="password" name="password">
+        <button type="submit" value="submit" name="submit">Login</button>
     </form>
 </body>
 </html>
