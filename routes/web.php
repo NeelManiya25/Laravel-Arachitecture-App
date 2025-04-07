@@ -6,8 +6,9 @@
     use App\Http\Controllers\UserController;
     use App\Http\Controllers\CustomerController;
     use App\Http\Controllers\EmployeeController;
-    use App\Http\Controllers\UsersformController;
-    use App\Http\Controllers\UseringController;
+    use App\Http\Controllers\Admin_user_dataController;
+    use App\Http\Controllers\Admin_user_data;
+    use App\Http\Controllers\UseressesController;
     use Illuminate\Support\Facades\Route;
 
 //     Route::get('/register', [RegisterUserController::class, 'create'])->name('register.form');
@@ -26,12 +27,23 @@ Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/usersform', [UsersformController::class, 'index'])->name('users.usersform');
-Route::post('/users/usersform', [UsersformController::class, 'store'])->name('users.store');
+// Route::get('/users/usersform', [Admin_user_dataController::class, 'index'])->name('users.usersform');
+// Route::post('/users/usersform', [Admin_user_dataController::class, 'store'])->name('users.store');
+
+// Route::resource('user','Admin_user_dataController::class');?
 
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/usersform',[UsersformController::class,'index'])->name('users.usersform');
+Route::resource('users', UserController::class);
+// Route::resource('users', UseressesController::class)->except(['show']);
+
+
+// Route::resource('users', UseressesController::class);
+
+Route::resource('users',UseressesController::class);
+
+
+// Route::get('/users', [UserController::class, 'index'])->name('users.index');
+// Route::get('/users/usersform',[Admin_user_dataController::class,'index'])->name('users.usersform');
 
 Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
 Route::get('/employees/employeesform',[EmployeesformController::class,'index'])->name('employees.employeesform');
@@ -48,7 +60,6 @@ use App\Http\Controllers\DashboardController;
 // })->name('login');
 
 // Route::post('/login',[LoginController::class,'login']);
-
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 ?>

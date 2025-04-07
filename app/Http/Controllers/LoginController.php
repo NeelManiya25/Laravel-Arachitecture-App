@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Cookie\make;
 
 class LoginController extends Controller
 {
+
         public function showLoginForm()
         {
             return view('login');
